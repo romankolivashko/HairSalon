@@ -18,7 +18,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
-      List<Client> model = _db.Client.Include(Client => Client.Stylist).ToList();
+      List<Client> model = _db.Client.Include(client => client.Stylist).ToList();
       return View(model);
     }
 
@@ -29,62 +29,47 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Client Client)
+    public ActionResult Create(Client client)
     {
-      _db.Client.Add(Client);
+      _db.Client.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Client
-       thisClient = _db.Client.FirstOrDefault(Client => Client.ClientId == id);
+      Client thisClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisClient = _db.Client.FirstOrDefault(Client => Client.ClientId == id);
+      var thisClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
       ViewBag.StylistId = new SelectList(_db.Stylist, "StylistId", "Name");
       return View(thisClient);
     }
 
     [HttpPost]
-    public ActionResult Edit(Client Client)
+    public ActionResult Edit(Client client)
     {
-      _db.Entry(Client).State = EntityState.Modified;
+      _db.Entry(client).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisClient = _db.Client.FirstOrDefault(Client => Client.ClientId == id);
+      var thisClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisClient = _db.Client.FirstOrDefault(Client => Client.ClientId == id);
+      var thisClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
       _db.Client.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    }
-
-    public ActionResult Search()
-    {
-      return View();
-    }
-
-    [HttpPost]
-    public ActionResult Search(string description)
-    {
-      string searchDescription = description.ToLower();
-      List<Client
-      > searchResults = _db.Client.Where(Client => Client.Description.ToLower().Contains(searchDescription)).ToList();
-      return View("Index", searchResults);
     }
   }
 }
