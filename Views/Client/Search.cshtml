@@ -1,0 +1,16 @@
+@using HairSalom.Models;
+@model HairSalom.Models.Restaurant;
+  
+<h3>Client search</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  <input type="submit" value="Search"/>
+}
+
+
+<p>@Html.ActionLink("See all stylist options", "Index", "Stylists")</p>
+<p>@Html.ActionLink("See all clients", "Index", "Clients")</p>

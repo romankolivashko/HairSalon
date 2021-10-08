@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Welcome to Eau Claire's Salon!</h1>
+
+<div class="row">
+  <div class="col"><p>@Html.ActionLink("See all clients", "Index", "Clients")</p> </div>
+  <div class="col"><p>@Html.ActionLink("See all stylists", "Index", "Stylists")</p></div>
+  <div class="w-100"></div>
+  <div class="col"><p>@Html.ActionLink("Search clients", "Search", "Clients")</p></div>
+  <div class="col"><p>@Html.ActionLink("Search stylists", "Search", "Stylists")</p></div>
+</div>
