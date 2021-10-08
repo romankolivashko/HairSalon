@@ -2,11 +2,32 @@
   Layout = "_Layout";
 }
 
-@model HairSalon.Models.Stylist
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
 
 <h2>Stylist info</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+
+<h4>Clients:</h4>
+<ul class="list-group">
+@if (@Model.Client.Count == 0)
+{
+  <p>No Clients Found!</p>
+}
+
+@foreach (Client client in @Model.Client)
+{
+  <li class="list-group-item list-group-item-action list-group-item-secondary">Name: @client.Description
+    <p>
+    <button type="button" class="btn btn-outline-dark btn-sm">@Html.ActionLink("Edit", "Edit", "Client", new { id = client.ClientId })</button> 
+    <button type="button" class="btn btn-outline-dark btn-sm">@Html.ActionLink("Delete", "Delete", "Client", new { id = client.ClientId })</button>
+    </p>
+  </li>
+}
+</ul>
+  
 <p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -11,10 +11,10 @@
   <h3>No stylists have been added yet!</h3>
 } 
 
-<ul>
+<ul class="list-group">
   @foreach(Stylist Stylist in Model)
   {
-    <li>@Html.ActionLink($"{Stylist.Name}", "Details", new { id = Stylist.StylistId })</li>
+    <li class="list-group-item">@Html.ActionLink($"{Stylist.Name}", "Details", new { id = Stylist.StylistId })</li>
   }
 </ul>
 

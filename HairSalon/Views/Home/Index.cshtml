@@ -18,5 +18,26 @@
 }
 
 <h1>Welcome to Eau Claire's Salon!</h1>
-<p>@Html.ActionLink("See all clients", "Index", "Client")</p> 
-<p>@Html.ActionLink("See all stylists", "Index", "Stylist")</p>
+@* <div class="row">
+  <div class="col home-col">
+    @Html.ActionLink("See all clients", "Index", "Client")
+  </div>
+  <div class="col home-col">
+   @Html.ActionLink("See all stylists", "Index", "Stylist")
+  </div>
+</div> *@
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("See all clients", "Index", "Client")</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("See all stylists", "Index", "Stylist")</a>
+  </li>
+  @* <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li> *@
+</ul>

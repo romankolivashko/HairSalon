@@ -1,4 +1,30 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight:400;
+}
+
 .jumbotron {
   margin-top: 132px; 
   width: 650px;
+}
+
+.nav-item {
+  margin-left: 2em;
+  color: black;
+}
+
+ul.nav li a:hover, ul.nav li a:active{
+  color: black!important;
+}
+
+ul.nav li a, ul.nav li a:visited {
+  color: rgb(53, 48, 48) !important;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+  color: rgb(36, 38, 39) !important;
+}
+
+ul.nav li.active a {
+  color: rgb(48, 50, 61) !important;
 }

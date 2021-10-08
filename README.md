@@ -1,16 +1,16 @@
 # Eau Claire's Hair Salon
 
-#### MVC web application to help salon owner manage her employees (stylists) and their clients.
+#### MVC web application to help salon owner manage employees (stylists) and their clients.
 
 #### By Roman Kolivashko
 
 ## Technologies Used:
 * C#
 * .Net v5
-* MSTest
 * HTML
 * CSS3
 * Razor
+* MySQL 
 
 ## User Stories
 
