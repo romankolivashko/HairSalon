@@ -4,6 +4,14 @@ namespace HairSalon
 {
   public class Stylist
   {
-    // properties, constructors, methods, etc. go here
+    public Stylist()
+    {
+      this.Client = new HashSet<Client>();
+    }
+
+    public int StylistId { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set;}
+    public virtual ICollection<Client> Client { get; set; }
   }
 }
