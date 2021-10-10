@@ -6,10 +6,11 @@
 @model HairSalon.Models.Stylist;
 
 <h2>Stylist info</h2>
-<hr />
+<hr>
+<br>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
 
-<h4>Clients:</h4>
+<h3>All clients:</h3>
 <ul class="list-group">
 @if (@Model.Client.Count == 0)
 {
@@ -18,16 +19,24 @@
 
 @foreach (Client client in @Model.Client)
 {
-  <li class="list-group-item list-group-item-action list-group-item-secondary">Name: @client.Description
-    <p>
-    <button type="button" class="btn btn-outline-dark btn-sm">@Html.ActionLink("Edit", "Edit", "Client", new { id = client.ClientId })</button> 
-    <button type="button" class="btn btn-outline-dark btn-sm">@Html.ActionLink("Delete", "Delete", "Client", new { id = client.ClientId })</button>
-    </p>
+  <li class="list-group-item list-group-item-light">Name: @client.Description
+    <button>@Html.ActionLink("Edit", "Edit", "Client", new { id = client.ClientId })</button>
+    <button>@Html.ActionLink("Delete", "Delete", "Client", new { id = client.ClientId })</button>
   </li>
 }
 </ul>
   
-<p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("Back to list", "Index")</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")</a>
+  </li>
+</ul>

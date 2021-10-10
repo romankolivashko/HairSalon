@@ -5,8 +5,11 @@
 @model HairSalon.Models.Stylist
 
 <h2>Edit</h2>
-
+<hr>
+<br>
 <h4>Edit this stylist: @Html.DisplayFor(model => model.Name)</h4>
+<hr>
+<br>
 
 @using (Html.BeginForm())
 {
@@ -17,4 +20,12 @@
 
   <input type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("Back to list", "Index")</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")</a>
+  </li>
+</ul>

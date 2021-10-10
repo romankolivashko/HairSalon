@@ -6,8 +6,20 @@
 
 <h2>Client Info</h2>
 <hr />
+<br>
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
-<p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId })</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId })</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Back to list", "Index")</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")</a>
+  </li>
+</ul>

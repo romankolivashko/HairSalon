@@ -6,18 +6,26 @@
 @model List<HairSalon.Models.Client>;
 
 <h1>Clients</h1>
+<hr>
+<br>
 <ul class="list-group">
 @if (@Model.Count == 0)
 {
   <h3>No clients have been added yet!</h3>
+  <h3>We may need to have sylist created first.</h3>
 } 
 
 @foreach (Client client in Model)
 {
-  <li class="list-group-item list-group-item-secondary">@Html.ActionLink($"{client.Description}", "Details", new { id = client.ClientId }) | Stylist: @client.Stylist.Name</li>
+  <li class="list-group-item list-group-item-secondary">@Html.ActionLink($"{client.Description}", "Details", new { id = client.ClientId }) ✂ Stylist: @client.Stylist.Name</li>
 }
 <br>
-<p>@Html.ActionLink("Add new client", "Create")</p>
 
-<p>@Html.ActionLink("Add new stylist", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active">@Html.ActionLink("Add new client", "Create")</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")</a>
+  </li>
+</ul>
